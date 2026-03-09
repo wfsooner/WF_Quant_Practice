@@ -1,0 +1,6 @@
+{
+    "cursorpyright.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportUnusedImport": "none"
+    }
+}
