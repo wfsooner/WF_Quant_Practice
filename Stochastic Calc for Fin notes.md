@@ -1,6 +1,6 @@
 Stochastic Calculus for Finance 1 (The Binomal Asset Pricing Model) by Steven Shreve
 
-PAGE LAST READ: 20 (1.6-1.1)
+PAGE LAST READ: 41 (1.6-1.1)
 
 Table of Contents:
     1. Binomial No-Arb Pricing Model
@@ -121,6 +121,78 @@ NOTES
          
 
 
+2.1 (Finite Probability Spaces)
+    A finite probability space has p, a probability, w, an event, and omega, a sample space. The sum of all p(w)'s = 1, where omega contains all possible outcomes.
+
+    Omega is nice because it contains a finite amount of unique events.
+    This allows P(A u B) = P(A) + P(B) and so forth.
+
+2.2 (Random Variables, Distributions, Expectations)
+    A random expirement generally generates numerical data. This gives rise to the concept of a random variable.
+
+    Distribution defines the probability of random variables.
+    The random variable is a functioned defined on omega, its distribution is a tabulation of probabilities that the random variables takes various values.
+
+    E[X] = sum( X(w) * P(w) )
+    This means the expectation is the sum of the possible outcomes (random variable) * the probability of those outcomes happening (distribution)
+
+    Jensens inequality:
+    The function of an average is less than or equal to the average of a function.
+    E[(X^2)] >= (E[X])^2 
+    On the right side, the function is u^2, where u is the average (E[X])
+    On the left side, the average is of the funcion, E[(X^2)]
+    Jensens inequality states the left side is always >= right side
+
+2.3 (Conditional Expectations)
+    Now lets think again of our binomial model we use in chapter 1
+    Where you have p and q which represent the probabilities of u and d
+    where (p*u + q*d)/(1+r) = 1 ; Meaning the average return of the next step is equal to the risk free rate, and the average next price discounted by the risk free rate to the current price is always equal
+
+    Constants and known values can be taken in or out of an expectation
+    Random variables in the future can be taken out as well, as they do not add any information.
+
+    A known interest rate can be taken out of the expectation.
+    An unknown interest rate (random variable) must be kept in
+
+2.4 (Martingales)
+    Processes that make the value S at time n+1 (Sn+1) equivalent to the value S at time n multiplied by the risk free rate (or make the value at time n the discounted value of n+1) are called martingales.
+
+    A martingale is when the value at time n is EQUAL to the expectation of value at time n+1
+
+    A submartingale is when it is less than or equal
+    A supermartingale is when it is greater than or equal
+
+    For a binomial asset pricing model, the idea is that our present value is always equal to the expectation of value at any future m that is in between n and N.
+
+    The expectations of value at each time n are the same. But only the true value of M0 is = EM0, since any true value M after that is random.
+
+    In a martingale binomial model where u=2 and d=0.5, p=1/3 and q=2/3
+    This is because the expectation of value at t=n+1 is the same as t=n
+
+    In reality the expectation of the rise in value at t=n+1 must be greater than the money market in order to compensate investors for risk.
+
+    This makes the discounted stock price a submartingale, as the value at t=n is less than the expectation of value at t=n+1.
+
+    In risk-neautral scenario the discounted stock price is a martingale, as the price expectation only moves upwards at the same rate as rf/money market
+
+    First Fundemental Theorem of Asset Pricing:
+        Find a risk-neutral measure: p,q,u,d such that the discounted value of all future values is equal
+
+2.5 (Markov Processes)
+    If we have a binomial model from n to N, with Xn being a variable and we have two functions f(x) and g(x)
+    And E[f(Xn+1)] = G(Xn) : This is a markov process
+
+    The binomial asset pricing model that models an asset price using:
+    u,d,p,q is a markov process, as our price at n X, relates to our price at n+1 g(X) where g(x) = X * (p*u + u*d)/(1+r)
+
+    A martingale is such that f(x) and g(x) are equal
+    if pu*qd = 1 then it is martingale, but a binomial model is always markov
+
+2.6 (Summary)
+    Markov means you don't need any information of how you got to time n, other than the random variables that are apart of your markov process
+
+    This is why to achieve a markov process that uses the max value of a security, we must include the current asset of the security, as this is a proxy for the path that the asset price is taken.
+    The exact path does not matter, but we do need to know the current price to understand how to estimate the max of the asset price in the future.
 
 
 
