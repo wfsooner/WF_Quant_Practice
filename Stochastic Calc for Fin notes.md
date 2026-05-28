@@ -194,7 +194,3 @@ NOTES
     This is why to achieve a markov process that uses the max value of a security, we must include the current asset of the security, as this is a proxy for the path that the asset price is taken.
     The exact path does not matter, but we do need to know the current price to understand how to estimate the max of the asset price in the future.
 
-
-
-
-
